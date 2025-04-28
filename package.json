@@ -1,0 +1,15 @@
+{
+  "name": "blackhub",
+  "version": "1.0.0",
+  "description": "BlackHub - Настольное приложение",
+  "main": "src/main.js", 
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^latest_version"
+  },
+  "devDependencies": {},
+  "author": "TECH7AKAT",
+  "license": "ISC"
+}
