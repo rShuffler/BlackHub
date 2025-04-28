@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Загрузка - BlackHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="loading-container">
+    <h1 id="welcomeMessage">Привет, пользователь</h1>
+    <div class="progress-bar-container">
+      <div class="progress"></div>
+    </div>
+    <p id="loadingText">Loading BlackHub</p>
+    <p id="checkingText">Checking for Updates</p>
+    <p class="animation-text">Подождите, пожалуйста...</p>
+  </div>
+
+  <script>
+    window.onload = function() {
+      // Получаем логин из Local Storage
+      const username = localStorage.getItem("username");
+
+      // Если логин найден, заменяем "Привет, пользователь" на имя
+      if (username) {
+        document.getElementById("welcomeMessage").textContent = `Привет, ${username}`;
+      }
+
+      // Прогресс бар
+      let progress = document.querySelector(".progress");
+      let loadingText = document.getElementById("loadingText");
+      let checkingText = document.getElementById("checkingText");
+
+      let loadProgress = 0;
+      let textSwitchInterval = 4000;
+      let texts = ["Loading BlackHub", "Checking for Updates"];
+      let currentTextIndex = 0;
+
+      // Меняем тексты каждые 4 секунды
+      setInterval(function() {
+        currentTextIndex = (currentTextIndex + 1) % texts.length;
+        loadingText.textContent = texts[currentTextIndex];
+        checkingText.style.display = currentTextIndex === 1 ? "block" : "none";
+        loadingText.style.display = currentTextIndex === 0 ? "block" : "none";
+      }, textSwitchInterval);
+
+      // Постепенно увеличиваем прогресс бар
+      let interval = setInterval(function() {
+        if (loadProgress < 100) {
+          loadProgress += 2;
+          progress.style.width = loadProgress + "%";
+        }
+      }, 100);
+
+      // Через 8 секунд переходим на главную страницу
+      setTimeout(function() {
+        window.location.href = "home.html";
+      }, 8000); // 8 секунд
+    };
+  </script>
+</body>
+</html>

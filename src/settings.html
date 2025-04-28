@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Настройки - BlackHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="settings-container">
+    <div class="settings-sidebar">
+      <ul>
+        <li><a href="#" class="active" onclick="showSection('general')">Основные настройки</a></li>
+        <li><a href="#" onclick="showSection('security')">Безопасность</a></li>
+        <li><a href="#" onclick="showSection('notifications')">Уведомления</a></li>
+        <li><a href="#" onclick="showSection('appearance')">Внешний вид</a></li>
+        <li><a href="#" onclick="showSection('language')">Язык</a></li>
+      </ul>
+    </div>
+
+    <div class="settings-content">
+      <div id="general" class="settings-section">
+        <h2>Основные настройки</h2>
+        <form>
+          <div class="form-group">
+            <label for="username">Имя пользователя</label>
+            <input type="text" id="username" placeholder="Введите имя пользователя" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Введите Email" />
+          </div>
+          <button type="submit">Сохранить</button>
+        </form>
+      </div>
+
+      <div id="security" class="settings-section" style="display: none;">
+        <h2>Безопасность</h2>
+        <form>
+          <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" placeholder="Введите новый пароль" />
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Подтверждение пароля</label>
+            <input type="password" id="confirmPassword" placeholder="Подтвердите новый пароль" />
+          </div>
+          <button type="submit">Сохранить</button>
+        </form>
+      </div>
+
+      <div id="notifications" class="settings-section" style="display: none;">
+        <h2>Уведомления</h2>
+        <form>
+          <div class="form-group">
+            <label for="notificationToggle">Включить уведомления</label>
+            <input type="checkbox" id="notificationToggle" />
+          </div>
+          <button type="submit">Сохранить</button>
+        </form>
+      </div>
+
+      <div id="appearance" class="settings-section" style="display: none;">
+        <h2>Внешний вид</h2>
+        <form>
+          <div class="form-group">
+            <label for="theme">Тема</label>
+            <select id="theme">
+              <option value="light">Светлая</option>
+              <option value="dark">Тёмная</option>
+            </select>
+          </div>
+          <button type="submit">Сохранить</button>
+        </form>
+      </div>
+
+      <div id="language" class="settings-section" style="display: none;">
+        <h2>Язык</h2>
+        <form>
+          <div class="form-group">
+            <label for="languageSelect">Выберите язык</label>
+            <select id="languageSelect">
+              <option value="en">Английский</option>
+              <option value="ru">Русский</option>
+              <option value="de">Немецкий</option>
+              <option value="fr">Французский</option>
+            </select>
+          </div>
+          <button type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>

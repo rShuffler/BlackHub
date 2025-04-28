@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная страница - BlackHub</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h1>BlackHub</h1>
+    </div>
+    <div class="sidebar-menu">
+      <a href="#" class="sidebar-link">Магазин</a>
+      <a href="#" class="sidebar-link">Библиотека</a>
+      <a href="#" class="sidebar-link">Чат</a>
+      <a href="#" class="sidebar-link">Друзья</a>
+      <a href="settings.html" class="sidebar-link">Настройки</a>
+    </div>
+    
+    <!-- Профиль игрока -->
+    <div class="sidebar-profile">
+      <h3 id="username">Имя пользователя</h3>
+      <p id="balance">Баланс: 0.00</p>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h2>Добро пожаловать в BlackHub!</h2>
+    </div>
+    <div class="game-library">
+      <h3>Недавние игры</h3>
+      <div class="game-list">
+        <!-- Карточки с играми -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Бета-ключ убираем, он больше не нужен -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Получаем логин и баланс из локального хранилища или используем дефолтные значения
+      const username = localStorage.getItem("username") || "Неизвестный пользователь";
+      const balance = localStorage.getItem("balance") || "0.00";
+
+      // Отображаем логин и баланс в боковой панели
+      document.getElementById("username").textContent = username;
+      document.getElementById("balance").textContent = `Баланс: ${balance}`;
+
+      // Показываем сообщение о бета-доступе, если это первый запуск или если он еще не ввел ключ
+      if (!localStorage.getItem("betaTestCompleted")) {
+        // Если это первый вход, показываем сообщение о бета-тесте
+        alert("Вы получили доступ к закрытому бета-тесту!");
+        // Устанавливаем флаг, что бета-тест завершен
+        localStorage.setItem("betaTestCompleted", "true");
+      }
+    });
+  </script>
+</body>
+</html>

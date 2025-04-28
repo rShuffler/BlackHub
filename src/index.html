@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация - BlackHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="welcome-message">
+    <h1>Welcome to BlackHub</h1>
+  </div>
 
+  <div class="registration-container">
+    <div class="registration-form">
+      <h2>Регистрация</h2>
+      <form id="registrationForm">
+        <div class="form-group">
+          <label for="username">Логин</label>
+          <input type="text" id="username" name="username" placeholder="Введите логин" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <input type="password" id="password" name="password" placeholder="Введите пароль" required />
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Подтвердите пароль</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Подтвердите пароль" required />
+        </div>
+        <button type="submit" id="registerButton">Зарегистрироваться</button>
+      </form>
+    </div>
+
+    <div class="qr-code-container">
+      <h2>QR Код</h2>
+      <img id="qrCodeImage" src="../assets/images/qr-code.png" alt="QR Код" />
+    </div>
+  </div>
+
+  <script>
+    // Функция для обработки нажатия кнопки "Зарегистрироваться"
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Предотвратить отправку формы
+
+      // Получаем значения логина и пароля
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      // Проверка на совпадение паролей
+      if (password !== confirmPassword) {
+        alert("Пароли не совпадают!");
+        return;
+      }
+
+      // Сохраняем логин в Local Storage
+      localStorage.setItem("username", username);
+
+      // Переходим на страницу загрузки
+      window.location.href = "loading.html";
+    });
+  </script>
+</body>
+</html>
